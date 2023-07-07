@@ -19,7 +19,7 @@ exports.userRegistration = (req, res) => {
     bcpt.hash(req.body.password, 15).then(hashed => {
         var user_info = [req.body.u_name, req.body.reg_no, req.body.location, req.body.email, req.body.phone, req.body.role == "admin" ? 1 : req.body.role == "student" ? 3 : 2, hashed]
 
-        db.query("INSERT INTO user(name,registration_no,location,email,phone_no,role,password) VALUES(?,?,?,?,?,?,?,?,?,?)", user_info, (err) => {
+        db.query("INSERT INTO user(name,registration_no,location,email,phone_no,role,password) VALUES(?,?,?,?,?,?,?)", user_info, (err) => {
 
             if (!err) {
 
